@@ -9,10 +9,10 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Dados do Aluno
 
-- **Nome completo:** [Preencher aqui]
-- **Matrícula:** [Preencher aqui]
-- **Curso:** [Preencher aqui]
-- **Turma:** [Preencher aqui]
+- **Nome completo:** Vítor Da Costa Rossi De Oliveira
+- **Matrícula:** 242015352
+- **Curso:** Engenharias
+- **Turma:** OO-T06
 
 ---
 
@@ -73,4 +73,4 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Contato
 
-- [Opcional: E-mail pessoal do aluno.]
+- vitorcrossi159@gmail.com / 242015352@aluno.unb.br
