@@ -12,7 +12,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 - **Nome completo:** Vítor Da Costa Rossi De Oliveira
 - **Matrícula:** 242015352
 - **Curso:** Engenharias
-- **Turma:** OO-T06
+- **Turma:** OO-T06 25.1
 
 ---
 
