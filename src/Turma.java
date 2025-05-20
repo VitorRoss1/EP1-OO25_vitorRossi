@@ -28,4 +28,13 @@ public class Turma {
    public List<Aluno> getMatriculados() {return matriculados;}
    public int getTipoAvaliacao(){return tipoAvaliacao;}
 
+
+    //METODO MATRICULAR
+   public boolean matricular(Aluno alunoX){
+    if(matriculados.size() < capacidadeTurma ){
+        matriculados.add(alunoX); 
+        return true; //flag de foi matriculado
+    }  //FALTA VERIFICAR OS PREREQUISITOS(MATERIAS)
+    return false;
    }
+  }

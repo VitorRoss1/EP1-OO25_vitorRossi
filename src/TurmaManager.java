@@ -6,31 +6,24 @@ public class TurmaManager {
 //Cada disciplina pode ter mais de uma turma, desde que em horário diferente.
 //list turmas<Turma>
 
-//METODO LISTAR TURMAS E ALUNOS
-
-@Override
-public String toString() {
-    system out
-    return super.toString();
-}
-
-
-
-
 //METODO CADASTRAR TURMA
-void CadastrarDisciplina(Scanner scanner){
-    System.out.println("Insira e pressione enter,em ordem:professor,semestre,forma de avaliação:média simples ou ponderada (0/1), se é presencial ou remota(s/n),sala,horário e capacidade máx de alunos:");
+void CadastrarDisciplina(Scanner scanner, Disciplina){
+
+    System.out.println("Insira: professor,semestre,avaliação(simples 0 ou ponderada 1), presencial(s/n),sala,horário e capacidade:");
     String professor = scanner.next();
     String semestre = scanner.next();
     String tipoAvaliacao = scanner.next();
-    String presencial = scanner.next(); //(s/n)
-    String sala = scanner.next();
+    boolean presencial = scanner.next().equalsIgnoreCase("s"); //(s/n)
+    String sala = presencial ?scanner.next() : "on-line"; //depende do resultado de presencial
     String horario = scanner.next();
     int capacidadeTurma = scanner.nextInt();
+
+
+
 }
 
-
-
+//METODO LISTAR TURMAS E ALUNOS
+//TRANCAR
 
 
 

@@ -5,8 +5,7 @@ public class Disciplina {
     private String nomeDisciplina;
     private String codigo;
     private int cargaHoraria;
-    private List<String> preRequisitos; //materias  
-
+    private List<Disciplina> preRequisitos= new ArrayList<>();; //materias  
 
 //Construtor
   public Disciplina(String nomeDisciplina, String codigo,int cargaHoraria){
@@ -16,9 +15,9 @@ public class Disciplina {
    this.preRequisitos = new ArrayList<>(); //instanciando o objeto prerequisitos do tipo list
 }
 
-//Metodo q adiciona preRequisitos na list (setter de preRequsito) 
- public void addPreRequisito(String codigo) {
-    preRequisitos.add(codigo); 
+//Metodo q adiciona preRequisitos na list prerequisito's
+ public void addPreRequisito(Disciplina disciplinaX) {
+    preRequisitos.add(disciplinaX); 
  }
 
 
@@ -26,7 +25,10 @@ public class Disciplina {
     public String getCodigo() { return codigo; }
     public String getNome() { return nomeDisciplina; }
     public int getCargaHoraria() { return cargaHoraria; }
-    public List<String> getPreRequisitos() { return preRequisitos; }
-
+    public List<Disciplina> getPreRequisitos() { return preRequisitos; }
+//setter
+public void setPreRequisitos(List<Disciplina> preRequisitos) {
+    this.preRequisitos = preRequisitos;
+}
 
 }
