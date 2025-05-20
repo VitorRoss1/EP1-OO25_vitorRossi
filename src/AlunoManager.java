@@ -12,16 +12,16 @@ public class AlunoManager {
     String curso = scanner.next();
     String especial = scanner.next();
        
-       //Verifica duplicidade com base na matrícula
-       if (buscarAluno(matricula) != null) {
-            System.out.println("Já existe aluno com essa matrícula");
-            return;
-        }
+    //Verifica duplicidade com base na matrícula logo apos o scan
+     if (buscarAluno(matricula) != null) {
+     System.out.println("Já existe aluno com essa matrícula");
+     return;  //se achar repetido já finaliza o método cadastrarAluno com return void.
+    }
 
     //Especial ou não
     Aluno aluno = especial.equalsIgnoreCase("s")
      ? new AlunoEspecial(nome, matricula, curso)  
-     : new Aluno(nome, matricula, curso);
+     : new Aluno(nome, matricula, curso); 
      alunos.add(aluno); 
      System.out.println("Aluno cadastrado (:");
     }
@@ -31,12 +31,12 @@ public class AlunoManager {
      if(alunos.isEmpty()){
         System.out.println("Nenhum aluno cadastrado");}
      else{ 
-      for(Aluno a : alunos){System.out.print(a);}
+      for(Aluno a : alunos){ System.out.print(a); }  // referencia temporária chamada 'a'
          }
     }
 
 //VERIFICAR DUPLICIDADE DE ALUNOS
-    public Aluno buscarAluno(int matricula) {
+    public Aluno buscarAluno(int matricula) {  //retorno do tipo Aluno
         for (Aluno a : alunos) {
           if (a.getmatricula() == matricula) 
           return a;  //retorna 'a' se achar matricula repetida
@@ -44,8 +44,10 @@ public class AlunoManager {
         return null;  //retorna null como padrao
     }
 }
+
+
 /*
 LEGENDA: 
- Aluno: CLASSE; aluno: OBJETO DE 'Aluno'; alunos: LISTA DE OBJETOS TIPO 'Aluno's
+ Aluno: CLASSE; aluno: OBJETO DE 'Aluno'; alunos: LISTA DE OBJETOS TIPO 'Aluno'
 */
 

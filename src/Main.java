@@ -10,13 +10,13 @@ public class Main {
       int escolha, escolhaAluno,escolhaAvaliacao,escolhaTurma = 0; 
      
         do { 
-            System.out.println("=====MAIN=MENU=====");
-            System.out.println("SELECIONE O MODO DESEJADO:");
-            System.out.println(" ");
-            System.out.println("1.ALUNO:");
-            System.out.println("2.TURMA/DISCIPLINA");
-            System.out.println("3.AVALIAÇÃO/FREQUÊNCIA");
-            System.out.println("4.FECHAR");
+           System.out.println("=====MAIN=MENU=====");
+           System.out.println("SELECIONE O MODO DESEJADO:");
+           System.out.println(" ");
+           System.out.println("1.ALUNO:");
+           System.out.println("2.TURMA/DISCIPLINA");
+           System.out.println("3.AVALIAÇÃO/FREQUÊNCIA");
+           System.out.println("4.FECHAR");
             escolha = scanner.nextInt();//Lê integers
             
 
@@ -42,6 +42,7 @@ public class Main {
           break;
           case 3:
           // matricular
+          //Turma.matricular(Aluno x);
           break;
           case 4:
           //trancar
@@ -53,19 +54,37 @@ public class Main {
           System.out.println("Opção inválida.");
           }
 
-           } while ( escolhaAluno != 5);
-            break;
+        } while ( escolhaAluno != 5);
+          break;
 
            case 2:
            do {
-            System.out.println("==MENU TURMA/DISCIPLINA==");
+            System.out.println("==MENU DISCIPLINAS e TURMAS==");
             System.out.println("Selecione a subcategoria:");
             System.out.println("1.Cadastrar disciplina");
             System.out.println("2.Cadastrar turma:");
-            System.out.println("3.Lista de turmas"); //e alunos nelas
+            System.out.println("3.Lista de turmas e alunos matriculados"); 
             System.out.println("4.Sair");
             escolhaTurma = scanner.nextInt();
-           }while( escolhaTurma != 4);
+
+        switch (escolhaTurma){
+          case 1: 
+          //cadastrar disc 
+          break;
+          case 2:
+          //cadastrar turma
+          break;
+          case 3:
+          //listar turmas e alunos em cada
+          break;
+          case 4:
+          System.out.println("Voltando ao menu principal...");
+          break;
+          default:
+          System.out.println("Opção inválida.");
+          }
+
+        }while( escolhaTurma != 4);
            break;
 
            case 3:
@@ -82,12 +101,12 @@ public class Main {
               }while( escolhaAvaliacao != 6);
                 break;
 
+
            case 4: 
            System.out.println("Closing...");
            break;
-
            default:
-           System.out.println("Selecione opcao valida!");
+           System.out.println("Selecione opção válida.");
        }
   
        } while (escolha != 4 );
