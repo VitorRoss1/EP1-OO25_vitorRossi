@@ -5,7 +5,7 @@ public class Disciplina {
     private String nomeDisciplina;
     private String codigo;
     private int cargaHoraria;
-    private List<String> preRequisitos; 
+    private List<String> preRequisitos; //materias  
 
 
 //Construtor

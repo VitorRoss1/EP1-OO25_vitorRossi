@@ -101,7 +101,6 @@ public class Main {
               }while( escolhaAvaliacao != 6);
                 break;
 
-
            case 4: 
            System.out.println("Closing...");
            break;
