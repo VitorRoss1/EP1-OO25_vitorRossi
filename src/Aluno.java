@@ -1,8 +1,7 @@
 
 public class Aluno {
-    private String nome;
+    private String nome,curso;
     private int matricula;
-    private String curso ;
 
 //construtor/inicializador
 public Aluno(String nome ,int matricula ,String curso){
@@ -22,11 +21,28 @@ public String getcurso(){
     return curso;
 }
 
-
+//setters
+public void setnome(String nome){
+   this.nome = nome;
+}
+public void setmatricula(int matricula){
+   this.matricula = matricula;
+}
+public void setcurso(String curso){
+   this.curso = curso;
 }
 
-//public   class DadosAluno extends Aluno{
-//public string listarAlunos(){
+public boolean ehEspecial(){return false;}
+
+  @Override
+    public String toString() {
+        return nome + " | Matrícula: " + matricula + " | Curso: " + curso ;
+    }
+ }
+
+
+
+
 
 
 
