@@ -1,35 +1,61 @@
-import java.util.*;
+
+//Cadastrar disciplinas (nome, código, carga horária, pré-requisitos); 
+//Não pode ser matriculado se não tiver os pré-requisitos (classe aluno) !
+//Matricular alunos em disciplinas existentes e com vagas disponíveis;  
+import java.util.ArrayList;
+import java.util.List;
 
 public class DisciplinaManager {
-        
-//Cadastrar disciplinas (nome, código, carga horária, pré-requisitos);
-//Matricular alunos em disciplinas existentes e com vagas disponíveis;
-//Não pode ser matriculado se não tiver os pré-requisitos
-//Trancar disciplinas e semestre;
+ private List<Disciplina> disciplinas = new ArrayList<>();
 
-private List<Disciplina> disciplinas = new ArrayList<>();
 
- //METODO CADASTRAR DISCIPLINA
- public void CadastrarDisciplina(String nomeDisciplina,String codigo,int cargaHoraria,List<Disciplina> preRequisitos){
-disciplinas.add(new Disciplina(nomeDisciplina, codigo, cargaHoraria));
-disciplinas.setPreRequisitos(preRequisitos);//
-disciplinas.add()
- }
-
-//METODO VERIFICAR DUPLICIDADE DE DISCIPLINAS
-public Disciplina buscarCodigo(String codigo) {
+//VERIFICAR DUPLICIDADE DE DISCIPLINAS
+ public Disciplina buscarCodigo(String codigo) {
     for (Disciplina d : disciplinas) {
       if (d.getCodigo().equals(codigo)) return d;
+      }
+      return null; //flag qnd nao ha dois codigos iguais
     }
-        return null; //flag qnd nao ha dois codigos iguais
-}
 
-//LISTAR DISCIPLINAS(PARA POSSIVEIS VERIFICAÇOES/ NAO SERA EXIBIDO)
-public void listarDisciplinas() {
- for (Disciplina d : disciplinas) { //d é temp
- System.out.println("| Código:" + d.getCodigo() + " | " +d.getNome()+ " | ");
+
+//CADASTRAR DISCIPLINA
+  public void CadastrarDisciplina(String nomeDisciplina,String codigo,int cargaHoraria,List<Disciplina> preRequisitos)
+  {
+   if(buscarCodigo(codigo) != null){
+   System.out.println("Já existe uma disciplina com esse código.");
+   return; //saí do método
   }
-}
-//getter pra disciplinas
-public List<Disciplina> getDisciplinas() { return disciplinas; }
+  else{
+  Disciplina disciplinaX = new Disciplina(nomeDisciplina, codigo, cargaHoraria);
+  disciplinaX.setPreRequisitos(preRequisitos); //adiciona pre req
+  disciplinas.add(disciplinaX);
+  System.out.println("Disciplina cadastrada com sucesso.");
+  }
+  }
+
+
+//LISTAR DISCIPLINAS (PARA POSSIVEIS VERIFICAÇOES/ NAO SERA EXIBIDO)
+ public void listarDisciplinas() {
+  if (disciplinas.isEmpty()) {
+   System.out.println("Nenhuma disciplina cadastrada.");
+   return;
+  }
+
+ for (Disciplina d : disciplinas) {  //percorre todas disciplinas e d é temp
+ System.out.println("| Código:" + d.getCodigo() + " | " +d.getNome()+ " | ");
+
+ if (!d.getPreRequisitos().isEmpty()) {
+  System.out.print(" | Pre-requisitos: ");  //! nega
+  for (Disciplina preReq : d.getPreRequisitos()) {
+  System.out.print(preReq.getCodigo() + " ");
+    }
+   }
+   System.out.println(); // '/n' entre os prereq's
+  }
+ }
+
+
+//getter
+public List<Disciplina> getDisciplinas() { return disciplinas;} //retorna o objeto disciplinas preenchido
+
 }

@@ -26,9 +26,10 @@ public class Disciplina {
     public String getNome() { return nomeDisciplina; }
     public int getCargaHoraria() { return cargaHoraria; }
     public List<Disciplina> getPreRequisitos() { return preRequisitos; }
+
+
 //setter
 public void setPreRequisitos(List<Disciplina> preRequisitos) {
     this.preRequisitos = preRequisitos;
-}
-
+ }
 }

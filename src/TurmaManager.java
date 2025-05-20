@@ -5,6 +5,7 @@ public class TurmaManager {
 //Cadastrar turmas com professor responsável, semestre, forma de avaliação, se é presencial ou remota, sala, horário e capacidade máxima de alunos;
 //Cada disciplina pode ter mais de uma turma, desde que em horário diferente.
 //list turmas<Turma>
+//Trancar disciplinas e semestre(TODAS);
 
 //METODO CADASTRAR TURMA
 void CadastrarDisciplina(Scanner scanner, Disciplina){
