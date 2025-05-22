@@ -1,7 +1,5 @@
-
 //Cadastrar disciplinas (nome, código, carga horária, pré-requisitos); 
-//Não pode ser matriculado se não tiver os pré-requisitos (classe aluno) !
-//Matricular alunos em disciplinas existentes e com vagas disponíveis;  
+ 
 import java.util.ArrayList;
 import java.util.List;
 

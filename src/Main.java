@@ -42,7 +42,6 @@ public class Main {
           break;
           case 3:
           // matricular
-          //Turma.matricular(Aluno x);
           break;
           case 4:
           //trancar
@@ -98,7 +97,31 @@ public class Main {
                 System.out.println("5.Visualiar boletins");
                 System.out.println("6.Sair");
                 escolhaAvaliacao = scanner.nextInt();
-              }while( escolhaAvaliacao != 6);
+
+        switch (escolhaAvaliacao){
+          case 1: 
+          //LISTAR NOTAS E PRESENÇA 
+          break;
+          case 2:
+          //CALCULAR MEDIAF E PRESENÇAF
+          break;
+          case 3:
+          //VISUALIZAR BOLETINS
+          break;
+          case 4:
+          //VISUALIZAR RELATORIOS
+          break;
+          case 5:
+          //VISUALIZAR BOLETINS
+          break;
+          case 6:
+          System.out.println("Voltando ao menu principal...");
+          break;
+          default:
+          System.out.println("Opção inválida.");
+          }
+
+          }while( escolhaAvaliacao != 6);
                 break;
 
            case 4: 

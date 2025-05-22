@@ -1,30 +1,33 @@
 import java.util.*;
-public class AlunoManager {
 
- private List<Aluno> alunos = new ArrayList<>();  //object do tipo list<> nomeado de alunos
+public class AlunoManager {
+  private List<Aluno> alunos = new ArrayList<>();  
+
 
 //CADASTRAR/EDITAR
  public void cadastrarAluno(Scanner scanner){
 
-    System.out.println("Insira e pressione enter,em ordem: Nome, Matrícula, Curso e Aluno especial(s/n)...");
+    System.out.println("Insira,em ordem: Nome, Matrícula, Curso e Aluno especial(s/n)...");
     String nome = scanner.next();
     int matricula = scanner.nextInt();
     String curso = scanner.next();
     String especial = scanner.next();
        
-    //Verifica duplicidade com base na matrícula logo apos o scan
-     if (buscarAluno(matricula) != null) {
+
+    //Verifica duplicidade com base no metodo buscaAluno(abaixo) 
+     if (alunoDuplo(matricula) != null) {
      System.out.println("Já existe aluno com essa matrícula");
      return;  //se achar repetido já finaliza o método cadastrarAluno com return void.
     }
 
-    //Especial ou não
+    //Direcionar o alunos especiais/nao
     Aluno aluno = especial.equalsIgnoreCase("s")
      ? new AlunoEspecial(nome, matricula, curso)  
      : new Aluno(nome, matricula, curso); 
-     alunos.add(aluno); 
-     System.out.println("Aluno cadastrado (:");
+      alunos.add(aluno); 
+      System.out.println("Aluno cadastrado (:");
     }
+
 
 //LISTAR
     public void listarAlunos(){
@@ -35,11 +38,11 @@ public class AlunoManager {
          }
     }
 
-//VERIFICAR DUPLICIDADE DE ALUNOS
-    public Aluno buscarAluno(int matricula) {  //retorno do tipo Aluno
+ //VERIFICAR DUPLICIDADE DE ALUNOS
+    public Aluno alunoDuplo(int matricula) {  //retorno do tipo Aluno
         for (Aluno a : alunos) {
           if (a.getmatricula() == matricula) 
-          return a;  //retorna 'a' se achar matricula repetida
+          return a;  //retorna 'a'(flag) se achar matricula repetida
         }
         return null;  //retorna null como padrao
     }
