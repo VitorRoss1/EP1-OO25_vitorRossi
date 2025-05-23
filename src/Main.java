@@ -4,10 +4,12 @@ public class Main {
     public static void main(String[] args) {
 
       //INSTANCIANDO
-      Scanner scanner = new Scanner(System.in); //instanciando 
+      Scanner scanner = new Scanner(System.in);
       AlunoManager alunoManager = new AlunoManager(); 
+      TurmaManager turmaManager = new TurmaManager();
+      DisciplinaManager disciplinaManager = new DisciplinaManager();
 
-      int escolha, escolhaAluno,escolhaAvaliacao,escolhaTurma = 0; 
+      int escolha, escolhaAluno,escolhaAvaliacao,escolhaTurma = 10; 
      
         do { 
            System.out.println("=====MAIN=MENU=====");
@@ -18,7 +20,6 @@ public class Main {
            System.out.println("0.FECHAR");
             escolha = scanner.nextInt();//Lê integers
             
-
       switch (escolha) {
         
         case 1: 
@@ -44,8 +45,10 @@ public class Main {
                 Aluno alunoEditar = alunoManager.alunoDuplo(matriculaEditar);
                 if (alunoEditar != null) {
 
+
                     //editar (setters)
                  
+
                 } else {
                     System.out.println("Aluno não encontrado!");
                 }
@@ -55,22 +58,20 @@ public class Main {
           break;
           case 4:
 
-          System.out.println("Para matricular 1* digite sua matrícula:");
+          System.out.println("Para matricular, 1* digite sua matrícula:");
           int matricula = scanner.nextInt();
-          Turma turma = new Turma();
           Aluno aluno = alunoManager.alunoDuplo(matricula);
-          if (aluno == null) {System.out.println("Aluno não encontrado!");
-          break;
+
+          if(aluno == null){System.out.println("Aluno não encontrado!");
+          break; 
           }
-    
           System.out.println("\nDigite o código da disciplina para matrícula:");
           String codigoDisc = scanner.next();
-                 if (turma.matricular(aluno, codigoDisc)) {
-                    System.out.println("Matrícula realizada com sucesso!");
+                 if (turmaManager.matricular(aluno, codigoDisc)) {
+                  System.out.println("Matrícula realizada com sucesso!");
                 } else {
-                    System.out.println("Falha na matrícula! Verifique pré-requisitos ou vagas.");
+                  System.out.println("Falha na matrícula! Verifique pré-requisitos ou vagas.");
                 }
-
 
           break;
           case 5:
@@ -102,16 +103,10 @@ public class Main {
           //cadastrar disc 
           break;
           case 2:
-         // Listar turmas e alunos
+          turmaManager.CadastrarTurma(scanner, disciplinaManager);
           break;
           case 3:
-
-
-
-
-
-
-
+          turmaManager.listarTurmas();//e alunos
           break;
           case 4:
           System.out.println("Voltando ao menu principal...");

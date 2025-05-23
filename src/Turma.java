@@ -63,7 +63,8 @@ public boolean temVaga() { return matriculados.size() < capacidade;}
    public List<Aluno> getMatriculados() {return matriculados;}
    public int getTipoAvaliacao(){return tipoAvaliacao;}//0 ou 1
    public Disciplina getDisciplina(){return disciplina;}
-
+   public String getSala(){return sala;}
+   public String getIndentificador(){return disciplina.getCodigo() + "-" + semestre + "-" + horario;}
  //
    public void adicionarAluno(Aluno aluno) {matriculados.add(aluno);}
   }

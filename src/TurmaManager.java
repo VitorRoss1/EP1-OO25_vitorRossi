@@ -23,35 +23,56 @@ void CadastrarTurma(Scanner scanner,DisciplinaManager disciplinaManager){
   return; 
   }
 
-
 //construtor
- System.out.println("Insira: professor, semestre, horário, sala, presencial(true/false),capacidade e tipo de avaliação(simples:0|ponderada:1)");
     //nomedisciplina(classe turma/disciplina)
-    String professor = scanner.next();
-    String  semestre = scanner.next();
-    String horario = scanner.next();
-    String sala = scanner.next();
-    boolean presencial = scanner.nextBoolean();
-    int capacidade = scanner.nextInt();
-    int tipoAvaliacao = scanner.nextInt();
+      System.out.print("Professor: ");
+      String professor = scanner.next();
+      System.out.print("Semestre (ex: 2024.2): ");
+      String semestre = scanner.next();
+      System.out.print("Horário (ex: 2T45): ");
+      String horario = scanner.next();
+      System.out.print("Presencial (true/false): ");
+      boolean presencial = scanner.nextBoolean();
+        
+      String sala = "";
+       if (presencial) {
+          System.out.print("Sala: ");
+          sala = scanner.next();
+        }
+      System.out.print("Capacidade: ");
+      int capacidade = scanner.nextInt();
+      System.out.print("Tipo avaliação (0-simples/1-ponderada): ");
+      int tipoAvaliacao = scanner.nextInt();
 
   //instanciando objeto tipo Turma
- Turma novaTurma = new Turma(disciplina, professor, semestre, horario,sala,
-  presencial, capacidade, tipoAvaliacao);
- turmas.add(novaTurma);
- System.out.println("Turma cadastrada com sucesso!");
-}
+    Turma novaTurma = new Turma(disciplina, professor, semestre, horario,sala,
+    presencial, capacidade, tipoAvaliacao);
+     turmas.add(novaTurma);
+     System.out.println("Turma cadastrada com sucesso!"+ novaTurma.getIndentificador());
+       }
 
 //LISTAR TURMAS
 public void listarTurmas(){ //preciso listar os alunos tbm e SALA
  for (Turma turmaX : turmas) {   
   System.out.println(
-  "Máteria " + turmaX.getDisciplina().getNome()
-+ " -Código: " + turmaX.getDisciplina().getCodigo()
-+ " -Professor: " + turmaX.getDisciplina().getNome()
-+ " -Vagas preenchidas: " + turmaX.getMatriculados().size() + "/" + turmaX.getCapacidade()
-+ " -Tipo de avaliação: " + turmaX.getTipoAvaliacao() + "0: Simples, 1: Ponderada"
+  " Máteria " + turmaX.getDisciplina().getNome()
++ " Código: " + turmaX.getDisciplina().getCodigo()
++ " Professor: " + turmaX.getDisciplina().getNome()
++ " Sala: " + turmaX.getSala()
++ " Vagas preenchidas: " + turmaX.getMatriculados().size() + "/" + turmaX.getCapacidade()
++ " Tipo de avaliação: " + turmaX.getTipoAvaliacao() + "0: Simples, 1: Ponderada"
 );
+ //listando os alunos nas turmas
+if (!turmaX.getMatriculados().isEmpty()) {
+    System.out.println("Alunos matriculados:");
+    for (Aluno aluno : turmaX.getMatriculados()) {
+     System.out.println("|" + aluno.getnome() + "|" + aluno.getmatricula() +"|"+ 
+     (aluno.ehEspecial() ? " [ALUNO ESPECIAL]" : "[ALUNO NORMAL]")
+     );
+    }
+} else {
+  System.out.println("Nenhum aluno matriculado nesta turma.");
+}
 }
 }
 
@@ -77,4 +98,17 @@ public boolean matricular(Aluno alunoX, String codigoTurma){
   }
   return turma.matricularAluno(alunoX); //metodo de turma add.matriculados(list)
   }
+
+//Adicionando turmas a disciplinas(lista)
+  public List<Turma> getTurmasPorDisciplina(String codigoDisciplina) {
+        List<Turma> turmasDaDisciplina = new ArrayList<>();
+        for (Turma t : turmas) {
+            if (t.getDisciplina().getCodigo().equals(codigoDisciplina)) {
+                turmasDaDisciplina.add(t);
+            }
+        }
+        return turmasDaDisciplina;
+    }
+
+
 }
