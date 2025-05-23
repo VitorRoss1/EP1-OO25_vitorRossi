@@ -38,13 +38,40 @@ public class Main {
           alunoManager.cadastrarAluno(scanner); 
           break;
           case 2:
-          //editar setters
+
+            System.out.println("Digite a matrícula do aluno:");
+                int matriculaEditar = scanner.nextInt();
+                Aluno alunoEditar = alunoManager.alunoDuplo(matriculaEditar);
+                if (alunoEditar != null) {
+
+                    //editar (setters)
+                 
+                } else {
+                    System.out.println("Aluno não encontrado!");
+                }
           break;
           case 3:
           alunoManager.listarAlunos();
           break;
           case 4:
-          // matricular
+
+          System.out.println("Para matricular 1* digite sua matrícula:");
+          int matricula = scanner.nextInt();
+          Turma turma = new Turma();
+          Aluno aluno = alunoManager.alunoDuplo(matricula);
+          if (aluno == null) {System.out.println("Aluno não encontrado!");
+          break;
+          }
+    
+          System.out.println("\nDigite o código da disciplina para matrícula:");
+          String codigoDisc = scanner.next();
+                 if (turma.matricular(aluno, codigoDisc)) {
+                    System.out.println("Matrícula realizada com sucesso!");
+                } else {
+                    System.out.println("Falha na matrícula! Verifique pré-requisitos ou vagas.");
+                }
+
+
           break;
           case 5:
           //trancar semestre(todas) ou disciplina
@@ -75,10 +102,16 @@ public class Main {
           //cadastrar disc 
           break;
           case 2:
-          //cadastrar turma
+         // Listar turmas e alunos
           break;
           case 3:
-          //listar turmas e alunos em cada
+
+
+
+
+
+
+
           break;
           case 4:
           System.out.println("Voltando ao menu principal...");

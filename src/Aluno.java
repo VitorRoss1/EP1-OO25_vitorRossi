@@ -10,7 +10,7 @@ public class Aluno {
     private List<Disciplina> historico;
 
 //construtor/inicializador
-public Aluno(String nome ,int matricula ,String curso,boolean matriculado,boolean trancado){
+public Aluno(String nome ,int matricula ,String curso){
 this.nome = nome;
 this.matricula = matricula;
 this.curso = curso;

@@ -52,8 +52,16 @@ public class DisciplinaManager {
   }
  }
 
-
 //getter
 public List<Disciplina> getDisciplinas() { return disciplinas;} //retorna o objeto disciplinas preenchido
+
+
+//Buscador de código(retorna a disciplina)
+public Disciplina buscarDisciplina(String codigo){
+for (Disciplina d : disciplinas) {
+ if (d.getCodigo().equals(codigo)) {return d;} //retorna mas nao printa d
+}
+return null; //fecha o método
+}
 
 }
