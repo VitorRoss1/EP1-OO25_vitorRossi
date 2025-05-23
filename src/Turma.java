@@ -6,12 +6,13 @@ public class Turma {
     private String professor,semestre,horario,sala; 
     private boolean presencial; 
     private int capacidadeTurma;
-    private List<Aluno> matriculados;
     private int tipoAvaliacao; // 1 media simples, 2 ponderada !!
-   
+    private List<Aluno> matriculados;
+    private List<Aluno> alunosTrancados;
 
  //construtor 
-  public Turma (Disciplina disciplina,String professor,String semestre,String horario,String sala,boolean presencial,int capacidadeTurma,int tipoAvaliacao)
+  public Turma (Disciplina disciplina,String professor,String semestre,String horario,
+   String sala,boolean presencial,int capacidadeTurma,int tipoAvaliacao)
    {
         this.disciplina = disciplina;
         this.professor = professor;
@@ -22,8 +23,38 @@ public class Turma {
         this.capacidadeTurma = capacidadeTurma;
         this.tipoAvaliacao = tipoAvaliacao; 
         this.matriculados = new ArrayList<>();
-        
+        this.alunosTrancados = new ArrayList<>();  
    }
+
+//Matricular alunos
+ public boolean matricularAluno(Aluno aluno) {
+   if (aluno instanceof AlunoEspecial && !((AlunoEspecial) aluno).podeMatricular()){
+    return false;
+  }
+   if (temVaga() && !matriculados.contains(aluno) && !alunosTrancados.contains(aluno)){
+    matriculados.add(aluno);
+    if (aluno instanceof AlunoEspecial) {
+    ((AlunoEspecial) aluno).incrementarDisciplinas();
+    }
+    return true;
+  }
+  return false;
+ }
+
+
+//trancar alunos
+ public boolean trancarAluno(Aluno aluno) {
+  if (matriculados.contains(aluno)) {
+   matriculados.remove(aluno);
+   alunosTrancados.add(aluno);
+   if (aluno instanceof AlunoEspecial) {
+   ((AlunoEspecial) aluno).decrementarDisciplinas();
+   }
+   return true;
+  }
+  return false;
+ }
+
 
  //getters(os necessarios para verificaçoes)
    public String getHorario() {return horario;} 

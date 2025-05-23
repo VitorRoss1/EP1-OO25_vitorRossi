@@ -11,12 +11,11 @@ public class Main {
      
         do { 
            System.out.println("=====MAIN=MENU=====");
-           System.out.println("SELECIONE O MODO DESEJADO:");
            System.out.println(" ");
-           System.out.println("1.ALUNO:");
-           System.out.println("2.TURMA/DISCIPLINA");
-           System.out.println("3.AVALIAÇÃO/FREQUÊNCIA");
-           System.out.println("4.FECHAR");
+           System.out.println("1.MENU ALUNO:");
+           System.out.println("2.MENU TURMA/DISCIPLINA");
+           System.out.println("3.MENU AVALIAÇÃO/FREQUÊNCIA");
+           System.out.println("0.FECHAR");
             escolha = scanner.nextInt();//Lê integers
             
 
@@ -26,11 +25,12 @@ public class Main {
            do{
            System.out.println("==MENU ALUNO==");
            System.out.println("Selecione a subcategoria:");
-           System.out.println("1.Cadastrar ou editar aluno"); //normal ou especial
-           System.out.println("2.Lista de alunos");
-           System.out.println("3.Matricular");
-           System.out.println("4.Trancamentos");
-           System.out.println("5.Sair");
+           System.out.println("1.Cadastrar aluno"); //normal ou especial
+           System.out.println("2.Editar aluno");
+           System.out.println("3.Lista de alunos");
+           System.out.println("4.Matricular");
+           System.out.println("5.Trancar");
+           System.out.println("0.Sair");
            escolhaAluno = scanner.nextInt(); 
 
         switch (escolhaAluno){
@@ -38,23 +38,27 @@ public class Main {
           alunoManager.cadastrarAluno(scanner); 
           break;
           case 2:
-          alunoManager.listarAlunos();
+          //editar setters
           break;
           case 3:
-          // matricular
+          alunoManager.listarAlunos();
           break;
           case 4:
-          //trancar
+          // matricular
           break;
           case 5:
+          //trancar semestre(todas) ou disciplina
+          break;
+          case 6:
           System.out.println("Voltando ao menu principal...");
           break;
           default:
           System.out.println("Opção inválida.");
           }
 
-        } while ( escolhaAluno != 5);
+        } while ( escolhaAluno != 0);
           break;
+
 
            case 2:
            do {
@@ -62,8 +66,8 @@ public class Main {
             System.out.println("Selecione a subcategoria:");
             System.out.println("1.Cadastrar disciplina");
             System.out.println("2.Cadastrar turma:");
-            System.out.println("3.Lista de turmas e alunos matriculados"); 
-            System.out.println("4.Sair");
+            System.out.println("3.Lista de turmas e alunos"); 
+            System.out.println("0.Sair");
             escolhaTurma = scanner.nextInt();
 
         switch (escolhaTurma){
@@ -83,24 +87,24 @@ public class Main {
           System.out.println("Opção inválida.");
           }
 
-        }while( escolhaTurma != 4);
+        }while( escolhaTurma != 0);
            break;
 
            case 3:
            do { 
-                System.out.println("==MENU AVALIACAO/FREQUENCIA==");
+                System.out.println("==MENU AVALIAÇÃO/FREQUÊNCIA==");
                 System.out.println("Selecione a subcategoria:");
-                System.out.println("1.Listar notas e presenca");
-                System.out.println("2.Calcular media e presenca finais");
-                System.out.println("3.visualisar resultado final");//aprovado reprovado e SR
-                System.out.println("4.Visualiar relatorios");
-                System.out.println("5.Visualiar boletins");
-                System.out.println("6.Sair");
+                System.out.println("1.Lançar notas e presença"); //2 modos
+                System.out.println("2.Calcular média e presença finais");
+                System.out.println("3.visualizar resultado final");//aprovado ou reprovado e SR
+                System.out.println("4.Visualizar relatorios");//3 tipos de por
+                System.out.println("5.Visualizar boletins"); //aluno + listar turma ou nao
+                System.out.println("0.Sair");
                 escolhaAvaliacao = scanner.nextInt();
 
         switch (escolhaAvaliacao){
           case 1: 
-          //LISTAR NOTAS E PRESENÇA 
+          //Lançar NOTAS E PRESENÇA 
           break;
           case 2:
           //CALCULAR MEDIAF E PRESENÇAF
@@ -121,7 +125,7 @@ public class Main {
           System.out.println("Opção inválida.");
           }
 
-          }while( escolhaAvaliacao != 6);
+          }while( escolhaAvaliacao != 0);
                 break;
 
            case 4: 
@@ -131,7 +135,7 @@ public class Main {
            System.out.println("Selecione opção válida.");
        }
   
-       } while (escolha != 4 );
+       } while (escolha != 0 );
 
       scanner.close(); //fecha o metodo(leituras) "scanf" 
       }

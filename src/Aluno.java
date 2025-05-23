@@ -10,7 +10,7 @@ public class Aluno {
     private List<Disciplina> historico;
 
 //construtor/inicializador
-public Aluno(String nome ,int matricula ,String curso){
+public Aluno(String nome ,int matricula ,String curso,boolean matriculado,boolean trancado){
 this.nome = nome;
 this.matricula = matricula;
 this.curso = curso;
@@ -25,8 +25,13 @@ public List<Disciplina> getHistorico() { return historico; }
 
 //setters(editar)
 public void setnome(String nome){this.nome = nome;}
-public void setmatricula(int matricula){this.matricula = matricula;}
+public void setmatricula(int matricula){this.matricula = matricula;}//imutavel
 public void setcurso(String curso){this.curso = curso;}
+
+public void adDDisciplinaCursadas(Disciplina disciplina) {
+  if (!historico.contains(disciplina)) {
+  historico.add(disciplina);}
+}
 
 //verificar se já cursou a disciplina
 public boolean jaCursou(Disciplina d) {
@@ -36,10 +41,11 @@ public boolean jaCursou(Disciplina d) {
 //nâo é alunoEspecial
 public boolean ehEspecial(){return false;}
 
+
   @Override
   public String toString() {
   return nome + " | Matrícula: " + matricula + " | Curso: " + curso ;
-    }
+    } 
  }
 
 

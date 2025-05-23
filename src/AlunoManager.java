@@ -3,7 +3,7 @@ import java.util.*;
 public class AlunoManager {
   private List<Aluno> alunos = new ArrayList<>();  
 
-
+  
 //CADASTRAR/EDITAR
  public void cadastrarAluno(Scanner scanner){
 
