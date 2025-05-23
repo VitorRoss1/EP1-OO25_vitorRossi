@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -43,11 +44,17 @@ public class Main {
             System.out.println("Digite a matrícula do aluno:");
                 int matriculaEditar = scanner.nextInt();
                 Aluno alunoEditar = alunoManager.alunoDuplo(matriculaEditar);
-                if (alunoEditar != null) {
+                if (alunoEditar != null) { //editar (setters) Matrícula imutavel
 
+                System.out.println("Insira novo nome:");
+                String novoNome = scanner.next();
+                alunoEditar.setnome(novoNome);
+                System.out.println("Nome editado para:" + alunoEditar.getnome());
 
-                    //editar (setters)
-                 
+                 System.out.println("Insira novo curso:");
+                 String novoCurso = scanner.next();
+                 alunoEditar.setcurso(novoCurso);
+                 System.out.println("Curso editado para:" + alunoEditar.getcurso());
 
                 } else {
                     System.out.println("Aluno não encontrado!");
@@ -58,7 +65,7 @@ public class Main {
           break;
           case 4:
 
-          System.out.println("Para matricular, 1* digite sua matrícula:");
+          System.out.println("Para matricular, 1º digite sua matrícula:");
           int matricula = scanner.nextInt();
           Aluno aluno = alunoManager.alunoDuplo(matricula);
 
@@ -75,7 +82,7 @@ public class Main {
 
           break;
           case 5:
-          //trancar semestre(todas) ou disciplina
+          //TRANCAR semestre(todas) ou disciplina remove
           break;
           case 6:
           System.out.println("Voltando ao menu principal...");
@@ -87,7 +94,7 @@ public class Main {
         } while ( escolhaAluno != 0);
           break;
 
-
+          
            case 2:
            do {
             System.out.println("==MENU DISCIPLINAS e TURMAS==");
@@ -100,13 +107,31 @@ public class Main {
 
         switch (escolhaTurma){
           case 1: 
-          //cadastrar disc 
+         System.out.println("Para matricular, 1º digite o código da disciplina:");  
+         String codigoX = scanner.next();
+         Disciplina disciplinaX = disciplinaManager.buscarCodigo(codigoX);
+       
+         if(disciplinaX==null){ //nao há repetidos
+         System.out.println("Digite o nome da disciplina");
+         String nomeDisciplina  = scanner.next();
+          System.out.println("Digite sua carga horária");
+         int cargaHoraria = scanner.nextInt();
+
+         List<Disciplina> preReqs = new ArrayList<>();
+         For(){
+          preReqs = scanner.next()
+         }
+         disciplinaManager.CadastrarDisciplina(nomeDisciplina,codigoX,cargaHoraria,preReqs);
+         disciplinaManager.add
+
+         }
+         else{System.out.println("Disciplina já existe"); }
           break;
           case 2:
           turmaManager.CadastrarTurma(scanner, disciplinaManager);
           break;
           case 3:
-          turmaManager.listarTurmas();//e alunos
+          turmaManager.listarTurmas();
           break;
           case 4:
           System.out.println("Voltando ao menu principal...");
@@ -141,7 +166,7 @@ public class Main {
           //VISUALIZAR BOLETINS
           break;
           case 4:
-          //VISUALIZAR RELATORIOS
+          //VISUALIZAR RELATORIOS(3)switch
           break;
           case 5:
           //VISUALIZAR BOLETINS
