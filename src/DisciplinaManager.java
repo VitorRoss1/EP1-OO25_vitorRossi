@@ -40,7 +40,7 @@ public class DisciplinaManager {
         System.out.println("Cadastrar pré-requisitos? (s/n)");
       if (scanner.next().equalsIgnoreCase("s")) {
             System.out.println("Disciplinas disponíveis:");
-            listarDisciplinas(); // Mostra as disciplinas já cadastradas e alunod
+            listarDisciplinas(); // Mostra as disciplinas já cadastradas
             
             System.out.println("Digite os códigos dos pré-requisitos (separados por vírgula):");
             scanner.nextLine();  //lê a linha toda

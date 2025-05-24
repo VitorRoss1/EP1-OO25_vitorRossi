@@ -8,6 +8,11 @@ public class Aluno {
     private String nome,curso;
     private int matricula;
     private List<Disciplina> historico;
+    private int P1,P2,P3,L,S;
+    private int mediaF;
+    private int presenca;
+    //notas e presenças 
+
 
 //construtor/inicializador
 public Aluno(String nome ,int matricula ,String curso){
@@ -15,6 +20,10 @@ this.nome = nome;
 this.matricula = matricula;
 this.curso = curso;
 this.historico = new ArrayList<>();
+
+this. = 
+this.presenca = 
+
 }
 
 //getters
@@ -22,6 +31,8 @@ public String getnome(){ return nome;}
 public int getmatricula(){return matricula;}
 public String getcurso(){return curso;}
 public List<Disciplina> getHistorico() { return historico; }
+
+
 
 //setters(editar)
 public void setnome(String nome){this.nome = nome;}

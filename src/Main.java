@@ -129,11 +129,11 @@ public class Main {
            do { 
                 System.out.println("==MENU AVALIAÇÃO/FREQUÊNCIA==");
                 System.out.println("Selecione a subcategoria:");
-                System.out.println("1.Lançar notas e presença"); //2 modos
-                System.out.println("2.Calcular média e presença finais");
+                System.out.println("1.Lançar notas e presença "); //2 modos 
+                System.out.println("2.Calcular média e presença finais"); 
                 System.out.println("3.visualizar resultado final");//aprovado ou reprovado e SR
-                System.out.println("4.Visualizar relatorios");//3 tipos de por
-                System.out.println("5.Visualizar boletins"); //aluno + listar turma ou nao
+                System.out.println("4.Visualizar relatorios");//3 tipos de por 
+                System.out.println("5.Visualizar boletins"); //aluno + listar turma ou nao !
                 System.out.println("0.Sair");
                 escolhaAvaliacao = scanner.nextInt();
 
@@ -142,7 +142,7 @@ public class Main {
           //Lançar NOTAS E PRESENÇA 
           break;
           case 2:
-          //CALCULAR MEDIAF E PRESENÇAF
+          //CALCULAR MEDIAF E PRESENÇAF XXX
           break;
           case 3:
           //VISUALIZAR BOLETINS
