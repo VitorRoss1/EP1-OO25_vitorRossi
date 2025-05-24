@@ -56,8 +56,8 @@ O enunciado do trabalho pode ser encontrado aqui:
 - [ ] Cadastro, listagem, matrícula e trancamento de alunos (Normais e Especiais)
 - [X] Cadastro de disciplinas e criação de turmas (presenciais e remotas)
 - [X] Matrícula de alunos em turmas, respeitando vagas e pré-requisitos
-- [ ] Lançamento de notas e controle de presença
-- [ ] Cálculo de média final e verificação de aprovação/reprovação
+- [X] Lançamento de notas e controle de presença
+- [X] Cálculo de média final e verificação de aprovação/reprovação
 - [ ] Relatórios de desempenho acadêmico por aluno, turma e disciplina
 - [ ] Persistência de dados em arquivos (.txt ou .csv)
 - [X] Tratamento de duplicidade de matrículas
@@ -68,7 +68,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Observações (Extras ou Dificuldades)
 
 - [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
-
+ Por questões de tempo e complexidade desnecessária, disciplinas são adicionadas ao histórico do aluno mesmo que o aluno não tenha sido aprovado.
 ---
 
 ## Contato
