@@ -73,6 +73,7 @@ public void informarAprovacao(Scanner scanner){
     System.out.println("Para listar notas e presença, antes digite a matrícula do aluno");
     int matricula = scanner.nextInt();
 if(alunoManager.alunoDuplo(matricula) != null){
+     
  if(alunos.presenca >= 75)
  {
    if(alunos.mediaF >= 5){  System.out.println("Aprovado :) ");}
