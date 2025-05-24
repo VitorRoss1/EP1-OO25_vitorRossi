@@ -8,10 +8,7 @@ public class Aluno {
     private String nome,curso;
     private int matricula;
     private List<Disciplina> historico;
-    private int P1,P2,P3,L,S;
-    private int mediaF;
-    private int presenca;
-    //notas e presenças 
+
 
 
 //construtor/inicializador
@@ -20,10 +17,6 @@ this.nome = nome;
 this.matricula = matricula;
 this.curso = curso;
 this.historico = new ArrayList<>();
-
-this. = 
-this.presenca = 
-
 }
 
 //getters
@@ -39,6 +32,8 @@ public void setnome(String nome){this.nome = nome;}
 //public void setmatricula(int matricula){this.matricula = matricula;}//imutavel
 public void setcurso(String curso){this.curso = curso;}
 
+
+//Adiciona ao historica
 public void adDDisciplinaCursadas(Disciplina disciplina) {
   if (!historico.contains(disciplina)) {
   historico.add(disciplina);}

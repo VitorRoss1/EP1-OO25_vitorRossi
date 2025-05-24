@@ -1,6 +1,4 @@
-import java.io.PipedWriter;
 import java.util.*;
-import javax.print.attribute.standard.Media;
 
 public class AlunoManager {
   private List<Aluno> alunos = new ArrayList<>();  
@@ -32,39 +30,53 @@ public class AlunoManager {
 
 
 //CADASTRAR NOTAS E PRESENÇA E LANÇAR MEDIAF E PRESENÇAF COM RESULTADOS
-AlunoManager alunoManager = new AlunoManager();
-
 public void CadastrarNotaPresenca(Scanner scanner){
     System.out.println("Para cadastrar notas e presença, antes digite a matrícula do aluno");
     int matricula = scanner.nextInt();
-if(alunoManager.alunoDuplo(matricula) != null){
+    Aluno alunoA = alunoDuplo(matricula);
 
-   System.out.println("Insira as 5 notas (P1,P2,P3,L,S) notas e pressione enter");
-   int P1 = scanner.nextInt();
-      alunos.setP1(P1);
-   int P2 = scanner.nextInt();
-      alunos.setP2(P2);
-   int P3 = scanner.nextInt();
-      alunos.setP3(P3);
-   int L = scanner.nextInt();
-      alunos.setL(L);
-   int S = scanner.nextInt();
-      alunos.setS(S);
+ if(alunoA!= null){
+ //Lista as disciplinas para cadastrar notas e presenca
+ System.out.println("Disciplinas do aluno:");
+ for (Disciplina d : alunoA.getHistorico()) {
+ System.out.println(d.getCodigo() + " - " + d.getNome());
+ }
+ System.out.println("Digite o código da disciplina:");
+ String codigo = scanner.next();
 
-   System.out.println("Insira o modo de avaliação (simples 0/ ponderada 1)");
+ //Encontra a disciplina no histórico
+   Disciplina disciplinaA = null;  //flag padrao de não encontrada
+   for (Disciplina d : alunoA.getHistorico()) {
+    if (d.getCodigo().equals(codigo)) {
+        disciplinaA = d; break; }
+   }
+        
+  if (disciplinaA != null) { //foi encontrada
+   System.out.println("Insira as 5 notas (P1,P2,P3,L,S) separadas por espaço:");
+     disciplinaA.setP1(scanner.nextInt());
+     disciplinaA.setP2(scanner.nextInt());
+     disciplinaA.setP3(scanner.nextInt());
+     disciplinaA.setL(scanner.nextInt());
+     disciplinaA.setS(scanner.nextInt());
+
+ //Calculando mediaF
+   System.out.println("Insira o modo de avaliação (0-simples/ 1-ponderada):");
    int tipoAvaliacao = scanner.nextInt();
-   int mediaF = 0;
-   if(tipoAvaliacao == 0){ mediaF = (P1+P2+P3+L+S)/5; }
-   if(tipoAvaliacao == 1){mediaF =  (P1 + 2*P2 + 3*P3 + L + S) / 8;}
-   alunos.setMediaF(mediaF);
 
-   //presença
-   System.out.println("Insira a presença 0 a 100(%) do aluno");
-   int presenca = scanner.nextInt();   
-   alunos.setPresenca();
+int mediaF = (tipoAvaliacao == 0) 
+   ? (disciplinaA.getP1() + disciplinaA.getP2() + disciplinaA.getP3() + disciplinaA.getL() + disciplinaA.getS()) / 5
+   : (disciplinaA.getP1() + 2*disciplinaA.getP2() + 3*disciplinaA.getP3() + disciplinaA.getL() + disciplinaA.getS()) / 8;
+   
+   disciplinaA.setMediaF(mediaF);
 
+ //Presença
+  System.out.println("Insira a presença 0 a 100 (%) do aluno:");
+  disciplinaA.setPresenca(scanner.nextInt());   
+    System.out.println("Notas e presença cadastradas com sucesso para"+ disciplinaA.getNome());
+}else { System.out.println("Disciplina não encontrada no histórico do aluno!");
+} 
+} else{ System.out.println("Aluno não encontrado.");
 }
-else{System.out.println("Aluno não encontrado.");return;}
 }
 
 
@@ -72,18 +84,23 @@ else{System.out.println("Aluno não encontrado.");return;}
 public void informarAprovacao(Scanner scanner){
     System.out.println("Para listar notas e presença, antes digite a matrícula do aluno");
     int matricula = scanner.nextInt();
-if(alunoManager.alunoDuplo(matricula) != null){
-     
- if(alunos.presenca >= 75)
- {
-   if(alunos.mediaF >= 5){  System.out.println("Aprovado :) ");}
-   else{ System.out.println("Reprovado por nota :( ");}
- } 
- else{ System.out.println("Reprovado por Falta :/");}
+    Aluno alunoB =  alunoDuplo(matricula); //instanciando da obj classe aluno
 
+ if(alunoB != null){
+  System.out.println("Disciplinas cursadas:");
+  for (Disciplina d : alunoB.getHistorico()) {
+   String resultado = (d.getPresencaFinal() >= 75) //valor da string resultado muda conforme resultado
+    ? (d.getMediaF() >= 5 ? "Aprovado :)" : "Reprovado por nota :(" )
+    : "Reprovado por falta :( "; 
+
+ // Mostra os detalhes(EXTRA)
+    System.out.println(d.getNome() + 
+    " | Média: " + d.getMediaF() + 
+    " | Presença: " + d.getPresencaFinal() + "%" +
+    " | Situação: " + resultado);
+  }
+  } else{ System.out.println("Aluno não encontrado");}
 }
-
-
 
 
 

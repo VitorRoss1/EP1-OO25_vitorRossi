@@ -96,10 +96,26 @@ public boolean matricular(Aluno alunoX, String codigoTurma){
     return false;
    }
   }
+ 
+  // INÍCIO DA ALTERAÇÃO - Inicializa notas e adiciona ao histórico
+    Disciplina disciplinaTurma = turma.getDisciplina();
+    
+    // Inicializa todas as notas com 0
+    disciplinaTurma.setP1(0);
+    disciplinaTurma.setP2(0);
+    disciplinaTurma.setP3(0);
+    disciplinaTurma.setL(0);
+    disciplinaTurma.setS(0);
+    disciplinaTurma.setMediaF(0);
+    disciplinaTurma.setPresenca(0);
+    
+    //Adiciona ao histórico do aluno (msm q não nao tenha passado :/ )
+    alunoX.adDDisciplinaCursadas(disciplinaTurma);
+
   return turma.matricularAluno(alunoX); //metodo de turma add.matriculados(list)
   }
 
-//Adicionando turmas a disciplinas(lista)
+ //Adicionando turmas a disciplinas(lista)
   public List<Turma> getTurmasPorDisciplina(String codigoDisciplina) {
         List<Turma> turmasDaDisciplina = new ArrayList<>();
         for (Turma t : turmas) {
