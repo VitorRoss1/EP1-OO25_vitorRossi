@@ -25,7 +25,7 @@ public List<Disciplina> getHistorico() { return historico; }
 
 //setters(editar)
 public void setnome(String nome){this.nome = nome;}
-public void setmatricula(int matricula){this.matricula = matricula;}//imutavel
+//public void setmatricula(int matricula){this.matricula = matricula;}//imutavel
 public void setcurso(String curso){this.curso = curso;}
 
 public void adDDisciplinaCursadas(Disciplina disciplina) {

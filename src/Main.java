@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -44,15 +43,16 @@ public class Main {
             System.out.println("Digite a matrícula do aluno:");
                 int matriculaEditar = scanner.nextInt();
                 Aluno alunoEditar = alunoManager.alunoDuplo(matriculaEditar);
-                if (alunoEditar != null) { //editar (setters) Matrícula imutavel
 
-                System.out.println("Insira novo nome:");
-                String novoNome = scanner.next();
+                if (alunoEditar != null) { //editar (setters) Matrícula imutavel
+                System.out.println("Insira novo nome ou repita o antigo:");
+                scanner.nextLine();
+                String novoNome = scanner.nextLine();
                 alunoEditar.setnome(novoNome);
                 System.out.println("Nome editado para:" + alunoEditar.getnome());
 
-                 System.out.println("Insira novo curso:");
-                 String novoCurso = scanner.next();
+                 System.out.println("Insira novo curso ou repita o antigo:");
+                 String novoCurso = scanner.nextLine();
                  alunoEditar.setcurso(novoCurso);
                  System.out.println("Curso editado para:" + alunoEditar.getcurso());
 
@@ -94,7 +94,7 @@ public class Main {
         } while ( escolhaAluno != 0);
           break;
 
-          
+
            case 2:
            do {
             System.out.println("==MENU DISCIPLINAS e TURMAS==");
@@ -107,25 +107,7 @@ public class Main {
 
         switch (escolhaTurma){
           case 1: 
-         System.out.println("Para matricular, 1º digite o código da disciplina:");  
-         String codigoX = scanner.next();
-         Disciplina disciplinaX = disciplinaManager.buscarCodigo(codigoX);
-       
-         if(disciplinaX==null){ //nao há repetidos
-         System.out.println("Digite o nome da disciplina");
-         String nomeDisciplina  = scanner.next();
-          System.out.println("Digite sua carga horária");
-         int cargaHoraria = scanner.nextInt();
-
-         List<Disciplina> preReqs = new ArrayList<>();
-         For(){
-          preReqs = scanner.next()
-         }
-         disciplinaManager.CadastrarDisciplina(nomeDisciplina,codigoX,cargaHoraria,preReqs);
-         disciplinaManager.add
-
-         }
-         else{System.out.println("Disciplina já existe"); }
+          disciplinaManager.cadastrarDisciplina(scanner);
           break;
           case 2:
           turmaManager.CadastrarTurma(scanner, disciplinaManager);
