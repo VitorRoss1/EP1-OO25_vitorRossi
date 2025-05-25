@@ -19,10 +19,10 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
-   [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
+   [ javac *.java ]
 
 2. **Execução:**  
-   [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
+   [ java Main ]
 
 3. **Estrutura de Pastas:**  
 
@@ -54,14 +54,27 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Prints da Execução
 
-1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+1. Menu Principal:
 
-2. Cadastro de Aluno:  
-   ![Inserir Print 2](caminho/do/print2.png)
+ 
+![Captura de tela 2025-05-25 152508](https://github.com/user-attachments/assets/d558a27e-6599-4178-b3e9-329ab239017d)
+
+
+
+2. Cadastro de Aluno:
+
+
+![Captura de tela 2025-05-25 160121](https://github.com/user-attachments/assets/1b520ea8-0478-4e01-abcd-4e6bb3128366)
+
+
 
 3. Relatório de Frequência/Notas:  
-   ![Inserir Print 3](caminho/do/print3.png)
+
+
+
+![Captura de tela 2025-05-25 160356](https://github.com/user-attachments/assets/04b6a93d-c031-4518-972c-d345c40966fb)
+
+
 
 ---
 
