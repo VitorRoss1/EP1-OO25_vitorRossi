@@ -123,7 +123,6 @@ public void informarAprovacao(Scanner scanner){
     }
 }
 
-
 /*
 LEGENDA: 
  Aluno: CLASSE; aluno: OBJETO DE 'Aluno'; alunos: LISTA DE OBJETOS TIPO 'Aluno'

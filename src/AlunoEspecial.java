@@ -22,7 +22,13 @@ public void decrementarDisciplinas() {
  if (NdisciplinasAtuais > 0) {NdisciplinasAtuais--;}
 }
 
-//é alunoEspecial
+//setter
+public void setNdisciplinasAtuais(int NdisciplinasAtuais)
+{
+this.NdisciplinasAtuais = NdisciplinasAtuais;
+}
+
+//é alunoEspecial(2 polimorfismos)
  @Override
  public boolean ehEspecial(){
   return true;

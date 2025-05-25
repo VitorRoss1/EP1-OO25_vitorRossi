@@ -126,5 +126,38 @@ public boolean matricular(Aluno alunoX, String codigoTurma){
         return turmasDaDisciplina;
     }
 
+ //getter turmas
+public List<Turma> getTurmas() {return this.turmas;}
 
+//TRANCAMENTOS
+ //único
+ public boolean trancarDisciplina(Aluno aluno, String codigoDisciplina) {
+    for (Turma turma : turmas) {
+    if (turma.getCodigoDisciplina().equals(codigoDisciplina)) {
+     if (turma.getMatriculados().contains(aluno)) {
+      turma.getMatriculados().remove(aluno); // Remove da turma
+      if (aluno.ehEspecial()) { // Atualiza o contador de alunoEspecial
+      ((AlunoEspecial)aluno).decrementarDisciplinas(); }
+      return true; //flag
+     }
+    }
+    }
+    return false; //flag nao trancou(por algum dos motivos "if's")
+    }
+
+ //geral
+  public boolean trancarTodasDisciplinas(Aluno aluno) {
+      boolean trancouGeral = false;
+      for (Turma turma : turmas) { 
+        if (turma.getMatriculados().contains(aluno)) {
+         turma.getMatriculados().remove(aluno); //remove de todas disciplinas matriculadas
+         trancouGeral = true;
+        }
+      }
+        // Zera contador do alunoEspecial
+        if (trancouGeral && aluno.ehEspecial()) { //zera o contador se trancouGeral for verdadeiro
+        ((AlunoEspecial)aluno).setNdisciplinasAtuais(0);
+        }
+   return trancouGeral;
+  }
 }

@@ -80,6 +80,42 @@ public class Main {
           break;
           case 5:
           //TRANCAR semestre(todas) ou disciplina remove
+          System.out.println("Digite a matrícula do aluno:");
+          int matricula = scanner.nextInt();
+          Aluno alunoY = alunoManager.alunoDuplo(matricula);
+
+          if (alunoY == null) {System.out.println("Aluno não encontrado!");break;}
+
+         System.out.println("1. Trancar disciplina específica");
+         System.out.println("2. Trancar todas as disciplinas");
+         System.out.println("0. Voltar");
+         int opcaoTrancamento = scanner.nextInt();
+
+        switch (opcaoTrancamento) {
+         case 1: // Disciplina específica
+          System.out.println("Disciplinas matriculadas:"); //listar disciplinas matriculadas
+          for (Turma t : turmaManager.getTurmas()) {
+           if (t.getMatriculados().contains(alunoY)) {
+           System.out.println(t.getDisciplina().getCodigo()+" - "+ t.getDisciplina().getNome());
+           }
+          } 
+          System.out.println("Digite o código da disciplina que quer trancar:");
+          String codigo = scanner.next();  
+           if (turmaManager.trancarDisciplina(alunoY, codigo)) { //flag true(conseguiu trancar: existe, tá matriculado...)
+            System.out.println("Disciplina trancada com sucesso!");
+            } else { System.out.println("Falha ao trancar disciplina!"); }
+          break;
+
+         case 2: //geral
+            if (turmaManager.trancarTodasDisciplinas(alunoY)){ 
+             System.out.println("Trancamento geral realizado com sucesso!"); }
+            else { System.out.println("Aluno não estava matriculado em nenhuma disciplina!"); }
+          break;   
+         case 0: 
+          break;
+         default:
+          System.out.println("Opção inválida!");
+         }
           break;
           case 0:
           System.out.println("Voltando ao menu principal...");
