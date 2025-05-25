@@ -7,7 +7,7 @@ public class AlunoManager {
 //CADASTRAR 
  public void cadastrarAluno(Scanner scanner){
 
-    System.out.println("Insira,em ordem: Nome, Matrícula, Curso e Aluno especial(s/n)...");
+    System.out.println("Insira em ordem: 1º Nome, Matrícula, Curso e Aluno especial(s/n):");
     String nome = scanner.next();
     int matricula = scanner.nextInt();
     String curso = scanner.next();
@@ -53,7 +53,7 @@ public void CadastrarNotaPresenca(Scanner scanner){
    }
         
   if (disciplinaA != null) { //foi encontrada
-// ALUNO ESPECIAL (só presença)
+ // aluno especial (só presença)
     if (alunoA.ehEspecial()) {
     System.out.println("ALUNO ESPECIAL - Cadastrar apenas presença");
     System.out.println("Insira a presença (0-100%):");
@@ -61,7 +61,7 @@ public void CadastrarNotaPresenca(Scanner scanner){
     disciplinaA.setPresenca(presenca);
     System.out.println("Presença cadastrada para aluno especial!");
             } 
-// ALUNO NORMAL (notas + presença)
+ // aluno normal (notas + presença)
     else {
    System.out.println("Insira as 5 notas (P1,P2,P3,L,S) separadas por espaço:");
      disciplinaA.setP1(scanner.nextInt());
@@ -102,7 +102,7 @@ public void informarAprovacao(Scanner scanner){
   System.out.println("Disciplinas cursadas:");
   for (Disciplina d : alunoB.getHistorico()) {
 
-    // Aprovação só por presença para alunosEspeciais
+   // Aprovação só por presença para alunosEspeciais
    if (alunoB.ehEspecial()) {            
     String resultado = (d.getPresencaFinal() >= 75) ? "Aprovado por presença" : "Reprovado por falta";
     System.out.println(d.getNome() + " | Presença: " + d.getPresencaFinal() + "% | " + resultado);
@@ -113,29 +113,32 @@ public void informarAprovacao(Scanner scanner){
     : "Reprovado por falta :( "; 
 
  // Mostra os detalhes(EXTRA)
-    System.out.println(d.getNome() + 
+    System.out.println(
+    " | Disciplina:" + d.getNome() + 
     " | Média: " + d.getMediaF() + 
     " | Presença: " + d.getPresencaFinal() + "%" +
-    " | Situação: " + resultado);
+    " | Situação: " + resultado + " | ");
   }
   }
   } else{ System.out.println("Aluno não encontrado");}
 }
 
+
 //LISTAR
     public void listarAlunos(){
      if(alunos.isEmpty()){
-        System.out.println("Nenhum aluno cadastrado");}
+      System.out.println("Nenhum aluno cadastrado");}
      else{ 
       for(Aluno a : alunos){ System.out.print(a); }  // referencia temporária chamada 'a'
          }
     }
 
+
  //VERIFICAR DUPLICIDADE DE ALUNOS
-    public Aluno alunoDuplo(int matricula) {  //retorno do tipo Aluno
+    public Aluno alunoDuplo(int matricula) { 
         for (Aluno a : alunos) {
           if (a.getmatricula() == matricula) 
-          return a;  //retorna 'a'(flag) se achar matricula repetida
+        return a;  //retorna 'a'(flag) se achar match na matricula 
         }
         return null;  //retorna null como padrao
     }
@@ -143,6 +146,6 @@ public void informarAprovacao(Scanner scanner){
 
 /*
 LEGENDA: 
- Aluno: CLASSE; aluno: OBJETO DE 'Aluno'; alunos: LISTA DE OBJETOS TIPO 'Aluno'
+Aluno: CLASSE; aluno: OBJETO DE 'Aluno'; alunos: LISTA DE OBJETOS TIPO 'Aluno'
 */
 

@@ -18,7 +18,7 @@ public class Turma {
         this.professor = professor;
         this.semestre = semestre;
         this.presencial = presencial;
-        this.sala = presencial ? sala : "on-line"; //se true this.sala = sala,se false this.sala = " " 
+        this.sala = presencial ? sala : "on-line";
         this.horario = horario;
         this.capacidade = capacidade;
         this.tipoAvaliacao = tipoAvaliacao; 
@@ -65,7 +65,8 @@ public boolean temVaga() { return matriculados.size() < capacidade;}
    public Disciplina getDisciplina(){return disciplina;}
    public String getSala(){return sala;}
    public String getIndentificador(){return disciplina.getCodigo() + "-" + semestre + "-" + horario;}
- //
+   public String getProfessor(){return professor;}
+   //
    public void adicionarAluno(Aluno aluno) {matriculados.add(aluno);}
   }
 

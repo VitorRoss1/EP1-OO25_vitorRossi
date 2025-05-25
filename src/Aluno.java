@@ -46,6 +46,6 @@ public boolean ehEspecial(){return false;}
 //to string (1 polimorfismo sobreescrita)
   @Override
   public String toString() {
-  return nome + " | Matrícula: " + matricula + " | Curso: " + curso ;
+  return "  | Nome: " + nome + " | Matrícula: " + matricula + " | Curso: " + curso ;
     } 
  }

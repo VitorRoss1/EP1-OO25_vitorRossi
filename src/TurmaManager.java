@@ -55,12 +55,13 @@ void CadastrarTurma(Scanner scanner,DisciplinaManager disciplinaManager){
 public void listarTurmas(){ //preciso listar os alunos tbm e SALA
  for (Turma turmaX : turmas) {   
   System.out.println(
-  " Máteria " + turmaX.getDisciplina().getNome()
-+ " Código: " + turmaX.getDisciplina().getCodigo()
-+ " Professor: " + turmaX.getDisciplina().getNome()
-+ " Sala: " + turmaX.getSala()
-+ " Vagas preenchidas: " + turmaX.getMatriculados().size() + "/" + turmaX.getCapacidade()
-+ " Tipo de avaliação: " + turmaX.getTipoAvaliacao() + "0: Simples, 1: Ponderada"
+  "  Máteria " + turmaX.getDisciplina().getNome()
++ "\n Código: " + turmaX.getDisciplina().getCodigo()
++ "\n Professor: " + turmaX.getProfessor()
++ "\n Sala: " + turmaX.getSala()
++ "\n Horário: " + turmaX.getHorario()
++ "\n Vagas preenchidas: " + turmaX.getMatriculados().size() + "/" + turmaX.getCapacidade()
++ "\n Tipo de avaliação: " + turmaX.getTipoAvaliacao() + " | 0-Simples | 1-Ponderada |"
 );
  //listando os alunos nas turmas
 if (!turmaX.getMatriculados().isEmpty()) {
