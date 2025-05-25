@@ -105,7 +105,7 @@ public void informarAprovacao(Scanner scanner){
     // Aprovação só por presença para alunosEspeciais
    if (alunoB.ehEspecial()) {            
     String resultado = (d.getPresencaFinal() >= 75) ? "Aprovado por presença" : "Reprovado por falta";
-    System.out.println(d.getNome() + " | Presença: " + d.getPresencaFinal() + "% | " + situacao);
+    System.out.println(d.getNome() + " | Presença: " + d.getPresencaFinal() + "% | " + resultado);
    
   } else {
    String resultado = (d.getPresencaFinal() >= 75) //valor da string resultado muda conforme resultado
