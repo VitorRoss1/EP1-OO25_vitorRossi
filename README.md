@@ -26,10 +26,17 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 3. **Estrutura de Pastas:**  
    [Descrever aqui as principais pastas do projeto]
-
+  ├── src/
+  │ ├── Aluno.java
+  │ ├── AlunoEspecial.java
+  │ ├── AlunoManager.java
+  │ ├── Disciplina.java
+  │ ├── Main.java
+  │ ├── Turma.java
+  │ └── TurmaManager.java
+ 
 3. **Versão do JAVA utilizada:**  
-    [java 21]
-
+    [ java 21 ]
 ---
 
 ## Vídeo de Demonstração
