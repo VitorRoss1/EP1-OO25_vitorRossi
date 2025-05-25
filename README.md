@@ -27,12 +27,19 @@ O enunciado do trabalho pode ser encontrado aqui:
 3. **Estrutura de Pastas:**  
 
   ├── src/
+  
   │ ├── Aluno.java
+  
   │ ├── AlunoEspecial.java
+  
   │ ├── AlunoManager.java
+  
   │ ├── Disciplina.java
+  
   │ ├── Main.java
+  
   │ ├── Turma.java
+  
   │ └── TurmaManager.java
  
 3. **Versão do JAVA utilizada:**  
@@ -80,4 +87,4 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Contato
 
-- vitorcrossi159@gmail.com / 242015352@aluno.unb.br
+- vitorcrossi159@gmail.com
