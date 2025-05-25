@@ -72,7 +72,6 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 
 
-![Captura de tela 2025-05-25 160356](https://github.com/user-attachments/assets/04b6a93d-c031-4518-972c-d345c40966fb)
 
 
 
@@ -95,7 +94,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Observações (Extras ou Dificuldades)
 
 - [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
- Por questões de tempo e complexidade desnecessária, disciplinas são adicionadas ao histórico do aluno mesmo que o aluno não tenha sido aprovado.
+
 ---
 
 ## Contato
