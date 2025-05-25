@@ -29,13 +29,14 @@ public class AlunoManager {
     }
 
 
-//CADASTRAR NOTAS E PRESENÇA E LANÇAR MEDIAF E PRESENÇAF COM RESULTADOS
+//CADASTRAR NOTAS E PRESENÇA 
 public void CadastrarNotaPresenca(Scanner scanner){
     System.out.println("Para cadastrar notas e presença, antes digite a matrícula do aluno");
     int matricula = scanner.nextInt();
     Aluno alunoA = alunoDuplo(matricula);
 
  if(alunoA!= null){
+
  //Lista as disciplinas para cadastrar notas e presenca
  System.out.println("Disciplinas do aluno:");
  for (Disciplina d : alunoA.getHistorico()) {
@@ -52,6 +53,16 @@ public void CadastrarNotaPresenca(Scanner scanner){
    }
         
   if (disciplinaA != null) { //foi encontrada
+// ALUNO ESPECIAL (só presença)
+    if (alunoA.ehEspecial()) {
+    System.out.println("ALUNO ESPECIAL - Cadastrar apenas presença");
+    System.out.println("Insira a presença (0-100%):");
+    int presenca = scanner.nextInt();
+    disciplinaA.setPresenca(presenca);
+    System.out.println("Presença cadastrada para aluno especial!");
+            } 
+// ALUNO NORMAL (notas + presença)
+    else {
    System.out.println("Insira as 5 notas (P1,P2,P3,L,S) separadas por espaço:");
      disciplinaA.setP1(scanner.nextInt());
      disciplinaA.setP2(scanner.nextInt());
@@ -73,6 +84,7 @@ int mediaF = (tipoAvaliacao == 0)
   System.out.println("Insira a presença 0 a 100 (%) do aluno:");
   disciplinaA.setPresenca(scanner.nextInt());   
     System.out.println("Notas e presença cadastradas com sucesso para"+ disciplinaA.getNome());
+  }
 }else { System.out.println("Disciplina não encontrada no histórico do aluno!");
 } 
 } else{ System.out.println("Aluno não encontrado.");
@@ -89,6 +101,13 @@ public void informarAprovacao(Scanner scanner){
  if(alunoB != null){
   System.out.println("Disciplinas cursadas:");
   for (Disciplina d : alunoB.getHistorico()) {
+
+    // Aprovação só por presença para alunosEspeciais
+   if (alunoB.ehEspecial()) {            
+    String resultado = (d.getPresencaFinal() >= 75) ? "Aprovado por presença" : "Reprovado por falta";
+    System.out.println(d.getNome() + " | Presença: " + d.getPresencaFinal() + "% | " + situacao);
+   
+  } else {
    String resultado = (d.getPresencaFinal() >= 75) //valor da string resultado muda conforme resultado
     ? (d.getMediaF() >= 5 ? "Aprovado :)" : "Reprovado por nota :(" )
     : "Reprovado por falta :( "; 
@@ -99,10 +118,9 @@ public void informarAprovacao(Scanner scanner){
     " | Presença: " + d.getPresencaFinal() + "%" +
     " | Situação: " + resultado);
   }
+  }
   } else{ System.out.println("Aluno não encontrado");}
 }
-
-
 
 //LISTAR
     public void listarAlunos(){

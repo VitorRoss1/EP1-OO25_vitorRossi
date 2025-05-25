@@ -28,7 +28,7 @@ public void setNdisciplinasAtuais(int NdisciplinasAtuais)
 this.NdisciplinasAtuais = NdisciplinasAtuais;
 }
 
-//é alunoEspecial(2 polimorfismos)
+//é alunoEspecial(2 polimorfismos sobreescrita)
  @Override
  public boolean ehEspecial(){
   return true;

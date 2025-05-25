@@ -2,14 +2,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Aluno {
-
     private String nome,curso;
     private int matricula;
     private List<Disciplina> historico;
-
-
 
 //construtor/inicializador
 public Aluno(String nome ,int matricula ,String curso){
@@ -24,7 +20,6 @@ public String getnome(){ return nome;}
 public int getmatricula(){return matricula;}
 public String getcurso(){return curso;}
 public List<Disciplina> getHistorico() { return historico; }
-
 
 
 //setters(editar)
@@ -48,17 +43,9 @@ public boolean jaCursou(Disciplina d) {
 public boolean ehEspecial(){return false;}
 
 
+//to string (1 polimorfismo sobreescrita)
   @Override
   public String toString() {
   return nome + " | Matrícula: " + matricula + " | Curso: " + curso ;
     } 
  }
-
-
-
-
-
-
-
-
-
