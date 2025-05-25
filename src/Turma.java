@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
-    private Disciplina disciplina; //codigo da Disciplina incluso;
+    private Disciplina disciplina; 
     private String professor,semestre,horario,sala; 
     private boolean presencial; 
     private int capacidade;
@@ -38,7 +38,7 @@ public boolean temVaga() { return matriculados.size() < capacidade;}
     if(aluno instanceof AlunoEspecial) {
     ((AlunoEspecial) aluno).incrementarDisciplinas();
     }
-    return true; //system"matricula realizada com sucesso!"
+    return true; 
   }
   return false;
 }
@@ -51,12 +51,12 @@ public boolean temVaga() { return matriculados.size() < capacidade;}
   if (aluno instanceof AlunoEspecial) {
    ((AlunoEspecial) aluno).decrementarDisciplinas();
    }
-   return true;  //system"trancamento de disciplina realizada com sucesso!"
+   return true;  
   }
-  return false; //system"aluno nao matriculado, impossivel trancar"
+  return false;
  }
 
- //getters(os necessarios para verificaçoes)
+ //getters
    public String getHorario() {return horario;} 
    public String getCodigoDisciplina() {return disciplina.getCodigo();}
    public int getCapacidade(){return capacidade;}

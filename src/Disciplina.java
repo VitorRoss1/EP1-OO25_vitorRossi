@@ -5,7 +5,7 @@ public class Disciplina {
     private String nomeDisciplina;
     private String codigo;
     private int cargaHoraria;
-    private List<Disciplina> preRequisitos= new ArrayList<>();; //materias 
+    private List<Disciplina> preRequisitos= new ArrayList<>();; 
     
     private int P1,P2,P3,L,S;
     private int mediaF;
@@ -17,15 +17,16 @@ public class Disciplina {
    this.nomeDisciplina = nomeDisciplina;
    this.codigo = codigo;
    this.cargaHoraria = cargaHoraria;
-   this.preRequisitos = new ArrayList<>(); //instanciando o objeto prerequisitos do tipo list
+   this.preRequisitos = new ArrayList<>(); 
 }
 
 //adiciona preRequisitos na list prerequisito's
  public void addPreRequisito(Disciplina disciplinaX) {
-     if (!preRequisitos.contains(disciplinaX)) { //pra nao repetir os preReq's
+     if (!preRequisitos.contains(disciplinaX)) { // nao repetir os preReq's
             preRequisitos.add(disciplinaX);
         } 
  }
+
 //setter
     public void setPreRequisitos(List<Disciplina> preRequisitos) {
     this.preRequisitos = preRequisitos;

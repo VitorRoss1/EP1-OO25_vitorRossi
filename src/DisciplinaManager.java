@@ -11,11 +11,10 @@ public class DisciplinaManager {
 //VERIFICAR DUPLICIDADE DE DISCIPLINAS
  public Disciplina buscarCodigo(String codigo) {
     for (Disciplina d : disciplinas) {
-      if (d.getCodigo().equals(codigo)) return d;
+      if (d.getCodigo().equals(codigo)) return d; //flag qnd ha dois codigos iguais
       }
-      return null; //flag qnd nao ha dois codigos iguais
+      return null; 
     }
-
 
 //CADASTRAR DISCIPLINA
   public void cadastrarDisciplina(Scanner scanner)
@@ -49,7 +48,7 @@ public class DisciplinaManager {
         if (!input.isEmpty()) {
           String[] codigos = input.split(","); //retorna um array de strings; divide uma string em substrings usando um delimitador definido ','
           for (String codigoTemp : codigos) {
-            Disciplina prereq = buscarCodigo(codigoTemp.trim());// "all leading and trailing space removed"
+            Disciplina prereq = buscarCodigo(codigoTemp.trim());// definição: "all leading and trailing space removed"
             if (prereq != null) { //se a disciplina existe
             preRequisitos.add(prereq); } 
             else {
@@ -58,7 +57,7 @@ public class DisciplinaManager {
           }
         }
       }
-        // Instancia e add disciplina
+        // Instanciar e add disciplina
         Disciplina novaDisciplina = new Disciplina(nome, codigo, cargaHoraria);
         novaDisciplina.setPreRequisitos(preRequisitos); // Define os pre req's 
         disciplinas.add(novaDisciplina);
@@ -66,14 +65,14 @@ public class DisciplinaManager {
     }
 
 
-//LISTAR DISCIPLINAS (PARA POSSIVEIS VERIFICAÇOES/ NAO SERA EXIBIDO)
+//LISTAR DISCIPLINAS 
  public void listarDisciplinas() {
   if (disciplinas.isEmpty()) {
    System.out.println("Nenhuma disciplina cadastrada.");
    return;
   }
 
- for (Disciplina d : disciplinas) {  //percorre todas disciplinas e d é temp
+ for (Disciplina d : disciplinas) {  
  System.out.println("| Código:" + d.getCodigo() + " | " +d.getNome()+ " | ");
 
  if (!d.getPreRequisitos().isEmpty()) {
@@ -87,15 +86,15 @@ public class DisciplinaManager {
  }
 
 //getter
-public List<Disciplina> getDisciplinas() { return disciplinas;} //retorna o objeto disciplinas preenchido
+public List<Disciplina> getDisciplinas() { return disciplinas;} 
 
 
 //Buscador de código(retorna a disciplina)
 public Disciplina buscarDisciplina(String codigo){
 for (Disciplina d : disciplinas) {
- if (d.getCodigo().equals(codigo)) {return d;} //retorna mas nao printa d
+ if (d.getCodigo().equals(codigo)) {return d;} 
 }
-return null; //fecha o método(qnd nao achou)
+return null; 
 }
 
 }

@@ -43,7 +43,7 @@ public boolean jaCursou(Disciplina d) {
 public boolean ehEspecial(){return false;}
 
 
-//to string (1 polimorfismo sobreescrita)
+//(+1 polimorfismo sobreescrita)
   @Override
   public String toString() {
   return "  | Nome: " + nome + " | Matrícula: " + matricula + " | Curso: " + curso ;

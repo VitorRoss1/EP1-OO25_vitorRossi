@@ -14,17 +14,17 @@ void CadastrarTurma(Scanner scanner,DisciplinaManager disciplinaManager){
  System.out.println("Disciplinas disponíveis:");
  disciplinaManager.listarDisciplinas();
 
- //buscar disciplina (!!extra)
+ //buscar disciplina 
  System.out.println("Digite o código da disciplina:");
  String codigoDisciplina = scanner.next();
  Disciplina disciplina = disciplinaManager.buscarCodigo(codigoDisciplina);
 
- if (disciplina == null) {System.out.println("Disciplina não existe!");
-  return; 
-  }
+ if (disciplina == null) 
+ {
+  System.out.println("Disciplina não existe!"); return; 
+ }
 
 //construtor
-    //nomedisciplina(classe turma/disciplina)
       System.out.print("Professor: ");
       String professor = scanner.next();
       System.out.print("Semestre (ex: 2024.2): ");
@@ -32,9 +32,9 @@ void CadastrarTurma(Scanner scanner,DisciplinaManager disciplinaManager){
       System.out.print("Horário (ex: 2T45): ");
       String horario = scanner.next();
       System.out.print("Presencial (true/false): ");
-      boolean presencial = scanner.nextBoolean();
-        
+      boolean presencial = scanner.nextBoolean();  
       String sala = "";
+
        if (presencial) {
           System.out.print("Sala: ");
           sala = scanner.next();
@@ -49,20 +49,22 @@ void CadastrarTurma(Scanner scanner,DisciplinaManager disciplinaManager){
     presencial, capacidade, tipoAvaliacao);
      turmas.add(novaTurma);
      System.out.println("Turma cadastrada com sucesso!"+ novaTurma.getIndentificador());
-       }
+}
+
 
 //LISTAR TURMAS
-public void listarTurmas(){ //preciso listar os alunos tbm e SALA
+public void listarTurmas(){ 
  for (Turma turmaX : turmas) {   
   System.out.println(
   "  Máteria " + turmaX.getDisciplina().getNome()
-+ "\n Código: " + turmaX.getDisciplina().getCodigo()
-+ "\n Professor: " + turmaX.getProfessor()
-+ "\n Sala: " + turmaX.getSala()
-+ "\n Horário: " + turmaX.getHorario()
-+ "\n Vagas preenchidas: " + turmaX.getMatriculados().size() + "/" + turmaX.getCapacidade()
-+ "\n Tipo de avaliação: " + turmaX.getTipoAvaliacao() + " | 0-Simples | 1-Ponderada |"
-);
+ + "\n Código: " + turmaX.getDisciplina().getCodigo()
+ + "\n Professor: " + turmaX.getProfessor()
+ + "\n Sala: " + turmaX.getSala()
+ + "\n Horário: " + turmaX.getHorario()
+ + "\n Vagas preenchidas: " + turmaX.getMatriculados().size() + "/" + turmaX.getCapacidade()
+ + "\n Tipo de avaliação: " + turmaX.getTipoAvaliacao() + " | 0-Simples | 1-Ponderada |"
+ );
+
  //listando os alunos nas turmas
 if (!turmaX.getMatriculados().isEmpty()) {
     System.out.println("Alunos matriculados:");
@@ -85,6 +87,7 @@ public Turma buscarTurma(String codigoDisciplina) {
  return null;
 }
 
+
 //MATRICULAR
 public boolean matricular(Aluno alunoX, String codigoTurma){
  Turma turma = buscarTurma(codigoTurma); 
@@ -97,11 +100,9 @@ public boolean matricular(Aluno alunoX, String codigoTurma){
     return false;
    }
   }
- 
-  // INÍCIO DA ALTERAÇÃO - Inicializa notas e adiciona ao histórico
     Disciplina disciplinaTurma = turma.getDisciplina();
     
-    // Inicializa todas as notas com 0
+    // Inicializo todas as notas com 0
     disciplinaTurma.setP1(0);
     disciplinaTurma.setP2(0);
     disciplinaTurma.setP3(0);
@@ -127,23 +128,25 @@ public boolean matricular(Aluno alunoX, String codigoTurma){
         return turmasDaDisciplina;
     }
 
- //getter turmas
+//getter turmas
 public List<Turma> getTurmas() {return this.turmas;}
 
+
 //TRANCAMENTOS
+
  //único
  public boolean trancarDisciplina(Aluno aluno, String codigoDisciplina) {
     for (Turma turma : turmas) {
     if (turma.getCodigoDisciplina().equals(codigoDisciplina)) {
      if (turma.getMatriculados().contains(aluno)) {
-      turma.getMatriculados().remove(aluno); // Remove da turma
-      if (aluno.ehEspecial()) { // Atualiza o contador de alunoEspecial
+      turma.getMatriculados().remove(aluno);
+      if (aluno.ehEspecial()) { //Atualiza o contador de alunoEspecial
       ((AlunoEspecial)aluno).decrementarDisciplinas(); }
       return true; //flag
      }
     }
     }
-    return false; //flag nao trancou(por algum dos motivos "if's")
+    return false; //flag nao trancou
     }
 
  //geral

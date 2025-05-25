@@ -1,7 +1,5 @@
-
-//NAO RECEBE NOTAS SO PRESENÇA
-
 public class AlunoEspecial extends Aluno{ 
+
 private static final int MAX_DISCIPLINAS = 2;
 private int NdisciplinasAtuais;
 
@@ -11,7 +9,7 @@ private int NdisciplinasAtuais;
    this.NdisciplinasAtuais = 0;
 }
 
-//SO CURSA 2 Disciplinas 
+//so cursa 2 Disciplinas 
 public boolean podeMatricular() {
 return NdisciplinasAtuais < MAX_DISCIPLINAS;
 }
@@ -28,7 +26,7 @@ public void setNdisciplinasAtuais(int NdisciplinasAtuais)
 this.NdisciplinasAtuais = NdisciplinasAtuais;
 }
 
-//é alunoEspecial(2 polimorfismos sobreescrita)
+//(+2 polimorfismos sobreescrita)
  @Override
  public boolean ehEspecial(){
   return true;

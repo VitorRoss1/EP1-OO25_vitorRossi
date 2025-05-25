@@ -53,6 +53,7 @@ public void CadastrarNotaPresenca(Scanner scanner){
    }
         
   if (disciplinaA != null) { //foi encontrada
+
  // aluno especial (só presença)
     if (alunoA.ehEspecial()) {
     System.out.println("ALUNO ESPECIAL - Cadastrar apenas presença");
@@ -74,7 +75,7 @@ public void CadastrarNotaPresenca(Scanner scanner){
    System.out.println("Insira o modo de avaliação (0-simples/ 1-ponderada):");
    int tipoAvaliacao = scanner.nextInt();
 
-int mediaF = (tipoAvaliacao == 0) 
+   int mediaF = (tipoAvaliacao == 0) 
    ? (disciplinaA.getP1() + disciplinaA.getP2() + disciplinaA.getP3() + disciplinaA.getL() + disciplinaA.getS()) / 5
    : (disciplinaA.getP1() + 2*disciplinaA.getP2() + 3*disciplinaA.getP3() + disciplinaA.getL() + disciplinaA.getS()) / 8;
    
@@ -85,9 +86,11 @@ int mediaF = (tipoAvaliacao == 0)
   disciplinaA.setPresenca(scanner.nextInt());   
     System.out.println("Notas e presença cadastradas com sucesso para"+ disciplinaA.getNome());
   }
-}else { System.out.println("Disciplina não encontrada no histórico do aluno!");
+}
+else { System.out.println("Disciplina não encontrada no histórico do aluno!");
 } 
-} else{ System.out.println("Aluno não encontrado.");
+} 
+else{ System.out.println("Aluno não encontrado.");
 }
 }
 

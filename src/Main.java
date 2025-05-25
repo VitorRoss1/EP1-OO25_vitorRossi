@@ -8,9 +8,9 @@ public class Main {
       AlunoManager alunoManager = new AlunoManager(); 
       TurmaManager turmaManager = new TurmaManager();
       DisciplinaManager disciplinaManager = new DisciplinaManager();
-
       int escolha, escolhaAluno,escolhaAvaliacao,escolhaTurma; 
-     
+
+//MENU PRINCIPAL
         do { 
            System.out.println(" == MAIN MENU ==");
            System.out.println(" 1. MENU ALUNO:");
@@ -18,13 +18,13 @@ public class Main {
            System.out.println(" 3. MENU AVALIAÇÃO/FREQUÊNCIA");
            System.out.println(" 0. FECHAR");
             escolha = scanner.nextInt();
-            
-      switch (escolha) {
-        
+
+//PRIMEIRO MENU            
+      switch (escolha) {  
         case 1: 
            do{
            System.out.println("\n == MENU ALUNO ==");
-           System.out.println(" 1. Cadastrar aluno"); //normal ou especial
+           System.out.println(" 1. Cadastrar aluno"); 
            System.out.println(" 2. Editar aluno");
            System.out.println(" 3. Lista de alunos");
            System.out.println(" 4. Matricular");
@@ -79,7 +79,6 @@ public class Main {
             }
           break;
           case 5: 
-          //TRANCAR semestre(todas) ou disciplina remove
           System.out.println("Digite a matrícula do aluno:");
           int matriculax = scanner.nextInt();
           Aluno alunoY = alunoManager.alunoDuplo(matriculax);
@@ -126,8 +125,7 @@ public class Main {
 
         } while ( escolhaAluno != 0);
           break;
-
-
+//SEGUNDO  MENU
            case 2:
            do {
             System.out.println("\n == MENU DISCIPLINAS e TURMAS ==");
@@ -156,7 +154,7 @@ public class Main {
 
         }while( escolhaTurma != 0);
            break;
-
+//TERCEIRO MENU
            case 3:
            do { 
                 System.out.println(" ==MENU AVALIAÇÃO/FREQUÊNCIA==");
@@ -188,6 +186,7 @@ public class Main {
            System.out.println("Selecione opção válida.");
        }
       } while (escolha != 0 );
+      
         scanner.close();  //fecha o metodo(leituras) "scanf" 
      }
 }
