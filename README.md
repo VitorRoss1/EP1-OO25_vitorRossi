@@ -25,7 +25,7 @@ O enunciado do trabalho pode ser encontrado aqui:
    [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
 
 3. **Estrutura de Pastas:**  
-   [Descrever aqui as principais pastas do projeto]
+
   ├── src/
   │ ├── Aluno.java
   │ ├── AlunoEspecial.java
