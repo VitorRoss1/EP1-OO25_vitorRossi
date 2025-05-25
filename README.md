@@ -48,7 +48,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Vídeo de Demonstração
 
-- [Inserir o link para o vídeo no YouTube/Drive aqui]
+- [https://drive.google.com/file/d/1dxVLnQ6s_if0F5tho0aFE02E8hylol_F/view?usp=drive_web]
 
 ---
 
@@ -71,8 +71,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 3. Relatório de Frequência/Notas:  
 
 
-
-
+![Captura de tela 2025-05-25 191412](https://github.com/user-attachments/assets/60e704d0-f7bc-4bc1-b8a1-528e124c79ab)
 
 
 ---
@@ -94,6 +93,11 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Observações (Extras ou Dificuldades)
 
 - [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
+
+-O sistema impede cadastro de alunos com matrícula repetida (alunoDuplo()).
+-Bloqueia matrícula além de 2 disciplinas para alunos especiais(podeMatricular() e incrementarDisciplinas()).
+-Dados são mantidos em memória durante a execução (sem arquivos).
+
 
 ---
 
