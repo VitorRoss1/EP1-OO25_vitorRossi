@@ -49,7 +49,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Vídeo de Demonstração
 
 - [[https://www.youtube.com/watch?v=jZbfY_8GNPs)]
-   *vídeo com velocidade aumentada
+     *vídeo com velocidade aumentada( favor ajuste no youtube a velocidade em partes que ficarem muito rápidas)
 ---
 
 ## Prints da Execução
