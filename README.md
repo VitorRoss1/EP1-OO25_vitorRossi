@@ -48,7 +48,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Vídeo de Demonstração
 
-- [https://drive.google.com/file/d/189a8pf2b8WGCdhH7CDFIClktr_qzLx5f/view?usp=drive_web]
+- [[https://www.youtube.com/watch?v=jZbfY_8GNPs)]
 
 ---
 
