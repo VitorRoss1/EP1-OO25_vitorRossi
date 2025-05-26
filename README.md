@@ -92,11 +92,14 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Observações (Extras ou Dificuldades)
 
-- [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
+ -O sistema impede cadastro de alunos com matrícula repetida (alunoDuplo()).
 
--O sistema impede cadastro de alunos com matrícula repetida (alunoDuplo()).
--Bloqueia matrícula além de 2 disciplinas para alunos especiais(podeMatricular() e incrementarDisciplinas()).
--Dados são mantidos em memória durante a execução (sem arquivos).
+
+ -Bloqueia matrícula além de 2 disciplinas para alunos especiais(podeMatricular() e 
+incrementarDisciplinas()).
+
+
+ -Dados são mantidos em memória durante a execução (sem arquivos).
 
 
 ---
